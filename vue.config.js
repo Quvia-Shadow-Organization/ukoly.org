@@ -13,9 +13,6 @@ module.exports = {
     cordovaPath: 'cordova-app'
   },
   lintOnSave: false,
-  configureWebpack: {
-    plugins: [/*new BundleAnalyzerPlugin()*/]
-  },
   chainWebpack: config => {
     config.plugin('pwa').tap(args => {
       return [pwaArgs]
