@@ -2,7 +2,7 @@
 <widget id="com.quvia.carbon.app" version="1.0.0"
     xmlns="http://www.w3.org/ns/widgets"
     xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Reboost</name>
+    <name>ukoly.org</name>
     <description>
         Use, come, flush. Evolution, baby
     </description>
