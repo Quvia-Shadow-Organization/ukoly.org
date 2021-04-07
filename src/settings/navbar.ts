@@ -1,6 +1,7 @@
 export default <NavbarObject>{
   settings: {
     width: [null, '10rem', '15rem'],
+    name: 'ukoly.org',
     mobile: {
       height: '2.65rem',
       itemWidth: '100%'
@@ -16,7 +17,7 @@ export default <NavbarObject>{
       path: '/'
     },
     {
-      name: 'Info',
+      name: 'About',
       icon: 'info',
       mobile: {
         name: 'Info'
@@ -29,6 +30,7 @@ export default <NavbarObject>{
 type NavbarObject = {
   settings: {
     width: string[]
+    name: string
     mobile: {
       height: string
       itemWidth: string

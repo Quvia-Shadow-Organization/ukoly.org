@@ -11,7 +11,7 @@
           size="md"
         >
         </CIconButton>
-        <CHeading as="span" ml="3"> Reboost</CHeading>
+        <CHeading as="span" ml="3">{{ sidebar.options.name }}</CHeading>
       </CFlex>
       <CBox
         position="absolute"
@@ -24,7 +24,7 @@
         padding="5"
       >
         <CBox mb="8" justify-content="space-between" align-items="bottom">
-          <CHeading as="span" size="lg" mr="3"> Reboost Home </CHeading>
+          <CHeading as="span" size="lg" mr="3"> {{ sidebar.options.name }} </CHeading>
           <!-- <CText as="span" mx="auto">BETA</CText> -->
           <!-- <CCloseButton @click="sidebarOpen(false)" /> -->
         </CBox>
@@ -33,9 +33,7 @@
           :key="index"
           :item="item"
           @click="
-            $router.currentRoute.path !== item.path
-              ? goto(item.path)
-              : ''
+            $router.currentRoute.path !== item.path ? goto(item.path) : ''
           "
         >
           <Item :selected="$route.path == item.path" :item="item" />
@@ -53,29 +51,27 @@
         justify-content="center"
         align="center"
       >
-      <!-- Div was used here, not a flexbox, because of the onclick event support -->
+        <!-- Div was used here, not a flexbox, because of the onclick event support -->
         <div
           v-for="(item, index) in mobileItems"
           :key="index"
           :item="item"
           @click="
-            $router.currentRoute.path !== item.path
-              ? goto(item.path)
-              : ''
+            $router.currentRoute.path !== item.path ? goto(item.path) : ''
           "
-          display="flex" 
+          display="flex"
           justify-content="center"
           align-items="center"
           width="100%"
           height="100%"
           v-chakra
         >
-            <MobileItem
-              my="auto"
-              v-if="item.mobile"
-              :selected="$router.currentRoute.path === item.path"
-              :item="item"
-            />
+          <MobileItem
+            my="auto"
+            v-if="item.mobile"
+            :selected="$router.currentRoute.path === item.path"
+            :item="item"
+          />
         </div>
       </CFlex>
     </div>
@@ -112,7 +108,7 @@ export default class RNavbar extends Vue {
     return a
   }
   goto(page: string) {
-    if(this.$platform.cordova) navigator.vibrate(70)
+    if (this.$platform.cordova) navigator.vibrate(70)
     this.$router.push(page)
   }
   computeMobile() {

@@ -7,6 +7,7 @@
       :borderColor="selected ? 'blue.200' : 'gray.200'"
       :boxShadow="selected ? '3px 7px 7px 2px rgba(125, 177, 255, 0.3)' : 'md'"
       borderRadius="lg"
+      align="center"
       padding="2"
     >
       <eva-icon :name="`${item.icon}-outline`" />
