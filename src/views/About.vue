@@ -1,7 +1,7 @@
 <template>
   <RPage title="About">
     <CText>
-      - Made by galook &amp; jiricek_cz <br />
+      - Made by galook &amp; jiricek_czs <br />
       - Hosted in Germany <br />
       - Fully TypeScript <br />
     </CText>
@@ -17,7 +17,7 @@ import { Component, Vue } from 'vue-property-decorator'
 export default class About extends Vue {
   vibrate() {
     if (this.$platform.cordova) {
-      navigator.vibrate(70)
+      navigator.vibrate(50)
     } else {
       this.$toast({
         title: 'No vibration for you',

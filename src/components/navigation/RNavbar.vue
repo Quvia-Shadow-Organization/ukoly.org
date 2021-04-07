@@ -108,7 +108,7 @@ export default class RNavbar extends Vue {
     return a
   }
   goto(page: string) {
-    if (this.$platform.cordova) navigator.vibrate(70)
+    if (this.$platform.cordova) navigator.vibrate(1)
     this.$router.push(page)
   }
   computeMobile() {
