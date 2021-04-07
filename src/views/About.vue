@@ -1,7 +1,7 @@
 <template>
   <RPage title="About">
     <CText>
-      - Made by galook &amp; jiricek_czs <br />
+      - Made by galook &amp; jiricek_cz <br />
       - Hosted in Germany <br />
       - Fully TypeScript <br />
     </CText>
