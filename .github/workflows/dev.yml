@@ -1,0 +1,27 @@
+name: Development Testing
+
+on:
+  push:
+    branches: [develop]
+  pull_request:
+    branches: [develop]
+
+jobs:
+  build:
+    runs-on: [self-hosted, nvme]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the product
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: 14.15.5
+      - run: npm ci
+      - run: npm run build
+      # - run: npm run electron:build -- --win nsis portable
+      - run: touch /var/www/dev.reboost/$(date +%s)
+      - run: rm -r /var/www/dev.reboost/*
+      # - run: mkdir /var/www/dev.reboost/electron
+      # - run: mv ./dist_electron/* /var/www/dev.reboost/electron
+      - run: mv ./dist/* /var/www/dev.reboost
+      - run: chmod -R 777 /var/www/dev.reboost

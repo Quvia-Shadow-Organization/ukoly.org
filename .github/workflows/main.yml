@@ -1,0 +1,25 @@
+name: Build and showtime
+
+on:
+  push:
+    branches: [ main, master ]
+
+jobs:
+  build:
+    runs-on: [self-hosted, nvme]
+    strategy:
+      matrix:
+        node-version: [14.15.5]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the product
+        uses: actions/setup-node@v2.1.4
+        with:
+          node-version: 14.15.5
+      - run: npm ci
+      - run: npm run build
+      - run: touch /var/www/ukoly/$(date +%s)
+      - run: rm -r /var/www/ukoly/*
+      - run: mv ./dist/* /var/www/ukoly
+      - run: chmod -R 777 /var/www/ukoly
